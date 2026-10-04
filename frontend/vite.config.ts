@@ -1,0 +1,2 @@
+import {defineConfig} from 'vite'; import react from '@vitejs/plugin-react'; import {VitePWA} from 'vite-plugin-pwa';
+export default defineConfig({plugins:[react(),VitePWA({registerType:'autoUpdate',includeAssets:['rescue-hero.jpg','map-preview.jpg'],manifest:{name:'RESCUEGRID',short_name:'RESCUEGRID',description:'Offline-first emergency coordination',theme_color:'#0b2447',background_color:'#f6f8fb',display:'standalone'},workbox:{globPatterns:['**/*.{js,css,html,svg,png,jpg,jpeg,webp}'],navigateFallback:'/index.html'}})],server:{host:'127.0.0.1',port:5173}});

@@ -1,0 +1,11 @@
+export type Role='community'|'rescue'|'admin';
+export type Entity='victim'|'incident'|'resource';
+export type Op='CREATE'|'UPDATE'|'DELETE';
+export type Severity='Critical'|'High'|'Medium'|'Low';
+export interface User{id:string;full_name:string;email:string;role:Role;mobile?:string;area?:string;latitude?:number;longitude?:number;team_name?:string;team_id?:string;designation?:string;team_type?:string}
+export interface Victim{id:string;name:string;age:number;severity:Severity;medical_condition:string;latitude:number;longitude:number;status:string;version:number;updated_by:string;updated_at?:string;device_id?:string}
+export interface Incident{id:string;title:string;type:string;severity:Severity;description:string;latitude:number;longitude:number;people_affected:number;status:string;version:number;updated_by:string;updated_at?:string;device_id?:string;location?:string;image_data?:string}
+export interface Resource{id:string;name:string;category:string;available:number;allocated:number;unit:string;location:string;latitude?:number;longitude?:number;status:string;version:number;updated_by:string;updated_at?:string;device_id?:string}
+export interface Pending{id:string;entity:Entity;entityId:string;operation:Op;payload:any;baseVersion:number;deviceId:string;createdAt:string;status:string;error?:string}
+export interface Conflict{id:string;entity:string;entity_id:string;operation:string;local_payload:string;server_payload:string;base_version:number;server_version:number;device_id:string;resolved:boolean;created_at:string}
+export interface MapPoint{id:string;name:string;kind:'team'|'hospital'|'relief'|'safe';latitude:number;longitude:number;status:string;detail:string}
